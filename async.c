@@ -618,6 +618,12 @@ static int __redisAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void 
     return REDIS_OK;
 }
 
+int redisAsyncRawCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *cmd, int cmd_len)
+{
+    int status = __redisAsyncCommand(ac, fn, privdata, cmd, cmd_len);
+    return status;
+}
+
 int redisvAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *format, va_list ap) {
     char *cmd;
     int len;

@@ -116,6 +116,7 @@ void redisAsyncHandleWrite(redisAsyncContext *ac);
  * output buffer and register the provided callback. */
 int redisvAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *format, va_list ap);
 int redisAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *format, ...);
+int redisAsyncRawCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *cmd, int cmd_len);  // hustdelta added
 int redisAsyncCommandArgv(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, int argc, const char **argv, const size_t *argvlen);
 
 #ifdef __cplusplus
